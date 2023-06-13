@@ -56,10 +56,10 @@ export default function App() {
       id: fileId,
       name: file.name,
       type: file.type,
-      // size: file.size,
-      // path: URL.createObjectURL(file), // Generate a local URL for preview purposes
-      // created: file.lastModifiedDate, // Use lastModifiedDate as an example, replace it with the appropriate property
-      // author: 'John Doe', // Provide the author name or obtain it from another source
+      size: file.size,
+      path: URL.createObjectURL(file), // Generate a local URL for preview purposes
+      created: file.lastModifiedDate, // Use lastModifiedDate as an example, replace it with the appropriate property
+      author: 'John Doe', // Provide the author name or obtain it from another source
     };
   
     // Update the state to include the uploaded file
@@ -274,14 +274,14 @@ export default function App() {
 </button>
 <spacer></spacer>
 <div style={{ marginLeft: "30px" }}>&nbsp;</div>
-{/* <div className="search-bar">
+{<div className="search-bar">
           <input
             type="text"
             placeholder="Search..."
             value={searchQuery}
             onChange={handleSearch}
           />
-        </div> */}
+        </div> }
 
         {/* Display search results only when there is a search query */}
         {searchQuery && searchResults.length > 0 ? (
@@ -317,8 +317,8 @@ export default function App() {
         }}
       >
         <p>{file.name}</p>
-        {/* <br></br> */}
-        {/* <button onClick={() => handleShare(file)}>Share</button> */}
+        { <br></br> }
+        { <button onClick={() => handleShare(file)}>Share</button> }
       </div>
     );
   }
@@ -348,7 +348,7 @@ export default function App() {
     <p>
       file type: <span style={{ fontStyle: 'italic' }}>{selectedFile.type}</span>
     </p>
-    {/* <p>
+    <p>
       Size: <span style={{ fontStyle: 'italic' }}>{selectedFile.size} bytes</span>
     </p>
     <p>
@@ -356,8 +356,8 @@ export default function App() {
     </p>
     <p>
       Author: <span style={{ fontStyle: 'italic' }}>{selectedFile.author}</span>
-    </p> */}
-    {/* Add additional metadata fields as needed */}
+    </p> 
+    
   </div>
 )}
 
