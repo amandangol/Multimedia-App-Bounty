@@ -8,7 +8,7 @@
  Here's a description and usage of each feature:
 
 1. `Share Feature`:
-   The share feature allows users to share a specific item from the file server to multiple platforms. When a user selects an item, they can click the "Share" button, which triggers a sharing functionality. The code uses the navigator.share() API to provide a native sharing experience, allowing users to share the item's details, such as name and description, on various platforms like social media, messaging apps, or email.
+   The share feature allows users to share a specific item from the file server to multiple platforms. When a user selects an item, they can click the "Share" button, which triggers a sharing functionality. The code uses the navigator.share() API to provide a native sharing experience, allowing users to share the item's details, such as name and description, on various platforms like social media, messaging apps, or email.\n
    I chose this feature to enable users to easily share specific items from the Multimedia Web App with others. Sharing is a common and expected functionality in many web applications, especially those dealing with multimedia content. By allowing users to share items, such as images or videos, on various platforms, the app becomes more versatile and aligned with user expectations. The native sharing experience provided by the navigator.share() API ensures a seamless sharing process across different devices and platforms. This feature enhances collaboration and allows users to distribute or showcase multimedia content from the app to a wider audience.
 
 2. `Search Box`:
