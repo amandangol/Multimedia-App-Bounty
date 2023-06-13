@@ -20,7 +20,8 @@
  </p>
 
 3. `Files Details and Metadata`:
-   This feature provides additional information about each file in the file server. The code includes a FileDetails component that displays various metadata of a file, such as its name, size, created date, and author. The metadata is obtained from the file object and rendered alongside the file's name and description. This allows users to have a comprehensive overview of each file, including when it was created and who authored it.
+  <p align="left"> This feature provides additional information about each file in the file server. The code includes a FileDetails component that displays various metadata of a file, such as its name, size, created date, and author. The metadata is obtained from the file object and rendered alongside the file's name and description. This allows users to have a comprehensive overview of each file, including when it was created and who authored it.
+ </p>
 
 
 
