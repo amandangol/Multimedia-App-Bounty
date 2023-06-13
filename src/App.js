@@ -6,6 +6,7 @@ import { DocumentViewer } from './components/DocumentViewer';
 import { VideoPlayer } from './components/VideoPlayer';
 import { ImageViewer } from './components/ImageViewer';
 import { Pie, Bar } from 'react-chartjs-2';
+import './App.css'; 
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -46,7 +47,7 @@ export default function App() {
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
   
-    // Perform validation if needed
+  
   
     // Create a unique ID for the file
     const fileId = Date.now().toString();
@@ -134,10 +135,7 @@ export default function App() {
   };
 
   return (
-    <>
-    
-   
-        
+    <> 
       {showChartModal && (
         // Modal for files breakdown
         <div style={styles.modal}>
@@ -212,6 +210,7 @@ export default function App() {
               {/* Upload File Button */}
               <input
                 type="file"
+
                 accept="audio/*,video/*,image/*,application/pdf"
                 onChange={handleFileUpload}
                 style={{ display: 'none' }}
@@ -274,30 +273,39 @@ export default function App() {
 </button>
 <spacer></spacer>
 <div style={{ marginLeft: "30px" }}>&nbsp;</div>
-{<div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-        </div> }
+<div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearch}
+        />
+      </div> 
 
-        {/* Display search results only when there is a search query */}
-        {searchQuery && searchResults.length > 0 ? (
-          <div className="search-results">
-            {searchResults.map((file) => (
-              <div key={file.id}>{file.name}</div>
-              // Render other file details here
-            ))}
-          </div>
-        ) : null}
+       {/* Display search results only when there is a search query */}
+      {searchQuery && searchResults.length > 0 ? (
+        <div className="search-results">
+          {searchResults.map((file) => (
+            <div
+              key={file.id}
+              onClick={() => {
+                setSelectedFile(file);
+              }}
+              className={
+                selectedFile && selectedFile.id === file.id
+                  ? 'search-result selected'
+                  : 'search-result'
+              }
+            >
+              {file.name}
+            </div>
+          ))}
+        </div>
+      ) : null}
 
 </div>
-
-
-
 </div>
+
 
 <div style={styles.fileContainer}>
 <div style={{ width: "100%", padding: 10 }}>
@@ -306,7 +314,8 @@ export default function App() {
     return (
       <div
         style={styles.file}
-        className={selectedFile && selectedFile.id === file.id ? 'selected' : ''}
+        className={selectedFile && selectedFile.id === file.id ? 'selectedFile' : ''}
+
         key={file.id}
         onClick={() => {
           if (selectedFile && selectedFile.id === file.id) {
@@ -318,7 +327,7 @@ export default function App() {
       >
         <p>{file.name}</p>
         { <br></br> }
-        { <button onClick={() => handleShare(file)}>Share</button> }
+        { <button onClick={() => handleShare(file)} style={{ padding: '5px 10px', borderRadius: '5px' ,cursor:'pointer' }}>Share</button> }
       </div>
     );
   }
@@ -368,6 +377,7 @@ export default function App() {
 );
 }
 
+
 const styles = {
 container: {
 backgroundColor: '#fff',
@@ -378,19 +388,18 @@ display: 'flex',
 justifyContent: 'space-between',
 alignItems: 'flex-start',
 flexDirection: 'row',
+backgroundColor: '#ccc', 
 },
-file: {
-  backgroundColor: '#eee',
-  padding: '10px',
-  marginBottom: '10px',
-  cursor: 'pointer',
-  width: '100%',
 
-  // Add the following styles for the selected item
-  '&.selected': {
-    backgroundColor: '#ffcccc',
+file: {
+    backgroundColor: '#eee',
+    padding: '10px',
+    marginBottom: '10px',
+    cursor: 'pointer',
+    width: '100%',
   },
-},
+ 
+
 fileViewer: {
 padding: '10px',
 margin: '10px',
@@ -413,6 +422,7 @@ cursor: 'pointer',
 fontWeight: 'bold',
 backgroundColor: '#eee',
 },
+
 // Modal styles...
 modal: {
   position: 'fixed',
