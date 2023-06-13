@@ -18,6 +18,16 @@
  
   Also, I chose the search box feature to improve the efficiency of finding specific items within the file server. As the number of files or items grows, it        becomes increasingly important to provide a way for users to quickly locate the content they need. The search box allows users to enter search queries and dynamically filters the displayed items based on the input. This feature enhances the user experience by reducing the time and effort required to find specific multimedia files. It improves the app's usability, especially for users who have a large collection of files or need to locate specific items regularly.
  </p>
+  <h1>How the code works?</h1>
+<ul>
+  <li>The search feature allows users to search for specific files by their names.</li>
+  <li>It is implemented using the handleSearch function, which is triggered by an onChange event on the search input field.</li>
+  <li>The current search query is stored in the searchQuery state variable using the useState hook.</li>
+  <li>The useEffect hook is used to perform the search whenever the search query or the myFiles state (containing the list of files) changes.</li>
+  <li>Inside the useEffect hook, the myFiles array is filtered based on the search query using the filter function.</li>
+  <li>Inside the useEffect hook, the myFiles array is filtered based on the search query using the filter function.</li>
+  <li>The search results are then displayed in the UI if there is a search query and the searchResults array is not empty.</li>
+</ul>
 
 3. `Files Details and Metadata`:
   <p align="left"> This feature provides additional information about each file in the file server. The code includes a FileDetails component that displays various metadata of a file, such as its name, size, created date, and author. The metadata is obtained from the file object and rendered alongside the file's name and description. This allows users to have a comprehensive overview of each file, including when it was created and who authored it.
