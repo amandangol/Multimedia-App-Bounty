@@ -43,11 +43,14 @@ export default function App() {
       setSelectedFile(null);
     }
   };
+  const handleDownload =()=>{
+    if (selectedFile) {
+      window.open(selectedFile.path, "_blank");
+    }
+  }
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
-  
-  
   
     // Create a unique ID for the file
     const fileId = Date.now().toString();
@@ -65,6 +68,24 @@ export default function App() {
   
     // Update the state to include the uploaded file
     setMyFiles((prevFiles) => [...prevFiles, newFile]);
+  };
+  const handleRename = () => {
+    if (selectedFile) {
+      const newName = prompt("Enter new name");
+      if (newName !== null) {
+        const newFiles = myFiles.map(file => {
+          if (file.id === selectedFile.id) {
+            return {
+              ...file,
+              name: newName
+            };
+          }
+          return file;
+        });
+        setMyFiles(newFiles);
+      }
+      setSelectedFile(null);
+    }
   };
     const handleShare = (file) => {
     const shareText = `Sharing file: ${file.name}\nPath: ${file.path}`;
@@ -222,25 +243,15 @@ export default function App() {
 
               {/* Rename Button */}
               <button
-                style={styles.controlButton}
-                disabled={!selectedFile}
-                onClick={() => {
-                  if (selectedFile) {
-                    const newFiles = myFiles.map(file => {
-                      if (file.id === selectedFile.id) {
-                        return {
-                          ...file,
-                          name: prompt("Enter new name")
-                        };
-                      }
-                      return file;
-                    });
-                    setMyFiles(newFiles);
-                    setSelectedFile(null);
-                  }
-                }}
-              >
-                Rename          </button>
+             style={styles.controlButton}
+            disabled={!selectedFile}
+            onClick={() => {
+              handleRename()
+          }}
+>
+  Rename
+</button>
+
 
 {/* Files Breakdown Button */}
 <button
@@ -255,9 +266,7 @@ export default function App() {
   style={styles.controlButton}
   disabled={!selectedFile}
   onClick={() => {
-    if (selectedFile) {
-      window.open(selectedFile.path, "_blank");
-    }
+   handleDownload()
   }}
 >
   Download
