@@ -352,10 +352,10 @@ export default function App() {
       {selectedFile.name}
     </p>
     <p>
-      path: <span style={{ fontStyle: 'italic' }}>{selectedFile.path}</span>
+      Path: <span style={{ fontStyle: 'italic' }}>{selectedFile.path}</span>
     </p>
     <p>
-      file type: <span style={{ fontStyle: 'italic' }}>{selectedFile.type}</span>
+      File Type: <span style={{ fontStyle: 'italic' }}>{selectedFile.type}</span>
     </p>
     <p>
       Size: <span style={{ fontStyle: 'italic' }}>{selectedFile.size} bytes</span>
@@ -381,9 +381,11 @@ export default function App() {
 const styles = {
 container: {
 backgroundColor: '#fff',
+
 color: '#000',
 },
 fileContainer: {
+ 
 display: 'flex',
 justifyContent: 'space-between',
 alignItems: 'flex-start',
@@ -397,6 +399,7 @@ file: {
     marginBottom: '10px',
     cursor: 'pointer',
     width: '100%',
+    borderRadius: '10px',
   },
  
 
@@ -421,6 +424,7 @@ border: 'none',
 cursor: 'pointer',
 fontWeight: 'bold',
 backgroundColor: '#eee',
+borderRadius: '5px',
 },
 
 // Modal styles...
