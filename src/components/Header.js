@@ -9,7 +9,7 @@ export const Header = () => {
  
 const styles = {
   header: {
-    backgroundColor: '#333',
+    backgroundColor: '#111',
     color: '#fff',
     textAlign: 'center',
     padding: '10px'
